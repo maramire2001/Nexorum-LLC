@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "Nexorum Global — Corporate Portal",
   "private": true,
+  "type": "module",
   "engines": {
     "node": ">=20.x"
   },
   "scripts": {
-    "dev": "vercel dev"
+    "build": "echo 'No build step needed'",
+    "start": "node api/chat.js"
   }
 }
