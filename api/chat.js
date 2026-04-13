@@ -16,10 +16,21 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// ─────────────────────────────────────────────────────────────────
+//  ARCHIVOS ESTÁTICOS — sirve index.html y demás desde la raíz
+// ─────────────────────────────────────────────────────────────────
+const ROOT = join(__dirname, '..');
+app.use(express.static(ROOT));
 
 // ─────────────────────────────────────────────────────────────────
 //  SYSTEM PROMPT — EDITA AQUÍ LA INFORMACIÓN DEL ASISTENTE
