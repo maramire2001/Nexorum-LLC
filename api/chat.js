@@ -1,9 +1,9 @@
 /**
  * ═══════════════════════════════════════════════════════════════════
- *  NEXORUM GLOBAL — API DE CHAT CON GROQ
- *  Vercel Serverless Function (Node.js Runtime)
+ *  NEXORUM GLOBAL — SERVIDOR DE CHAT CON GROQ
+ *  Express Server (Node.js) — Compatible con Render
  *
- *  VARIABLE DE ENTORNO REQUERIDA EN VERCEL:
+ *  VARIABLE DE ENTORNO REQUERIDA:
  *    GROQ_API_KEY = tu_api_key_de_groq
  *
  *  CÓMO ACTUALIZAR LA INFORMACIÓN DEL ASISTENTE:
@@ -13,7 +13,13 @@
  * ═══════════════════════════════════════════════════════════════════
  */
 
-export const config = { runtime: 'nodejs' };
+import 'dotenv/config';
+import express from 'express';
+import cors from 'cors';
+
+const app = express();
+app.use(cors());
+app.use(express.json());
 
 // ─────────────────────────────────────────────────────────────────
 //  SYSTEM PROMPT — EDITA AQUÍ LA INFORMACIÓN DEL ASISTENTE
@@ -121,25 +127,19 @@ REGLAS DE COMPORTAMIENTO
 9. Nunca menciones nombres de socios o directivos de la empresa.
 `;
 
-export default async function handler(req, res) {
-  // ── CORS ──────────────────────────────────────────────
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
-
-  // ── API KEY ───────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────
+//  RUTA POST /api/chat
+// ─────────────────────────────────────────────────────────────────
+app.post('/api/chat', async (req, res) => {
   const GROQ_API_KEY = process.env.GROQ_API_KEY;
+
   if (!GROQ_API_KEY) {
-    console.error('GROQ_API_KEY no está configurada en las variables de entorno de Vercel.');
+    console.error('GROQ_API_KEY no está configurada en las variables de entorno.');
     return res.status(500).json({
       message: 'El asistente no está configurado aún. Por favor contáctanos directamente por WhatsApp: wa.me/525664445643',
     });
   }
 
-  // ── BODY ─────────────────────────────────────────────
   const { messages } = req.body || {};
   if (!messages || !Array.isArray(messages)) {
     return res.status(400).json({ error: 'Formato inválido. Se esperaba { messages: [...] }' });
@@ -148,7 +148,6 @@ export default async function handler(req, res) {
   // Limitar historial a últimos 12 mensajes para controlar tokens
   const trimmedMessages = messages.slice(-12);
 
-  // ── GROQ API CALL ─────────────────────────────────────
   try {
     const groqResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
@@ -157,7 +156,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',   // Modelo potente y rápido de Groq
+        model: 'llama-3.3-70b-versatile',
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
           ...trimmedMessages,
@@ -191,4 +190,12 @@ export default async function handler(req, res) {
       message: 'Error interno. Por favor contáctanos directamente: wa.me/525664445643',
     });
   }
-}
+});
+
+// ─────────────────────────────────────────────────────────────────
+//  INICIAR SERVIDOR
+// ─────────────────────────────────────────────────────────────────
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`NEXORUM Chat API corriendo en puerto ${PORT}`);
+});
