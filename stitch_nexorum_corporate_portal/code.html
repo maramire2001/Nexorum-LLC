@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#2a1c00",
+                    "surface-tint": "#535e78",
+                    "inverse-primary": "#bbc6e4",
+                    "secondary-fixed": "#d8e2ff",
+                    "on-tertiary-container": "#a3813d",
+                    "on-primary-container": "#7a86a1",
+                    "on-secondary-container": "#124188",
+                    "on-tertiary-fixed": "#261900",
+                    "on-tertiary-fixed-variant": "#5d4201",
+                    "tertiary-fixed": "#ffdea5",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#18448c",
+                    "surface-container-high": "#e8e8e9",
+                    "surface-dim": "#d9dadb",
+                    "primary": "#000413",
+                    "primary-fixed-dim": "#bbc6e4",
+                    "inverse-surface": "#2f3132",
+                    "outline-variant": "#c5c6cd",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#d7e2ff",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#121e34",
+                    "surface-container-low": "#f3f3f4",
+                    "on-primary-fixed-variant": "#3b475f",
+                    "surface-container-highest": "#e2e2e3",
+                    "secondary-container": "#8cb0fe",
+                    "secondary": "#365da5",
+                    "on-primary-fixed": "#0f1b31",
+                    "on-surface-variant": "#45474d",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eeeeef",
+                    "background": "#f9f9fa",
+                    "surface-bright": "#f9f9fa",
+                    "inverse-on-surface": "#f0f1f2",
+                    "tertiary-fixed-dim": "#e9c176",
+                    "outline": "#75777e",
+                    "tertiary": "#090500",
+                    "secondary-fixed-dim": "#aec6ff",
+                    "on-background": "#1a1c1d",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1a1c1d",
+                    "error-container": "#ffdad6",
+                    "surface": "#f9f9fa",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#e2e2e3",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#001a42"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Work Sans"],
+                    "label": ["Work Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: #f9f9fa;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .letterhead-border {
+            border-left: 1px solid #e2e2e3;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface selection:bg-secondary selection:text-white">
+<!-- TopAppBar -->
+<header class="bg-[#000413] backdrop-blur-xl bg-opacity-80 shadow-[0px_40px_60px_rgba(0,4,19,0.06)] fixed top-0 z-50 w-full">
+<div class="flex justify-between items-center w-full px-12 py-6 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#365da5] text-3xl">architecture</span>
+<span class="text-2xl font-bold tracking-tighter text-white">NEXORUM</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-slate-400 font-medium hover:text-[#365da5] transition-colors duration-150 text-sm tracking-[0.05em] uppercase" href="#">Filosofía</a>
+<a class="text-white border-b-2 border-[#365da5] pb-1 font-medium hover:text-[#365da5] transition-colors duration-150 text-sm tracking-[0.05em] uppercase" href="#">Divisiones</a>
+<a class="text-slate-400 font-medium hover:text-[#365da5] transition-colors duration-150 text-sm tracking-[0.05em] uppercase" href="#">Gobierno Corporativo</a>
+<a class="text-slate-400 font-medium hover:text-[#365da5] transition-colors duration-150 text-sm tracking-[0.05em] uppercase" href="#">Contacto</a>
+</nav>
+<button class="bg-secondary px-8 py-3 text-white font-bold text-xs tracking-widest hover:bg-opacity-90 transition-all duration-150">
+                LOGIN
+            </button>
+</div>
+</header>
+<main class="pt-32 pb-24">
+<!-- Hero Section: Division Header -->
+<section class="max-w-screen-2xl mx-auto px-12 mb-24">
+<div class="grid grid-cols-12 gap-8">
+<div class="col-span-12 lg:col-span-8">
+<div class="inline-flex items-center gap-2 mb-6 text-secondary uppercase tracking-[0.2em] font-bold text-xs">
+<span class="w-8 h-[2px] bg-secondary"></span>
+                        Publishing Lab
+                    </div>
+<h1 class="text-6xl md:text-8xl font-extrabold text-primary leading-[0.9] tracking-tighter mb-8">
+                        The Architectural <br/>
+<span class="text-secondary">Authority</span> of Thought.
+                    </h1>
+<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed italic font-body">
+                        Elevamos el conocimiento técnico a la categoría de legado intelectual. Nexorum Publishing Lab es la división dedicada a la estructuración, protección y distribución global de la autoridad estratégica.
+                    </p>
+</div>
+<div class="col-span-12 lg:col-span-4 flex items-end justify-end">
+<div class="w-full h-80 bg-surface-container-highest relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="Macro close-up of high-quality architectural blueprints resting on a dark walnut desk with dramatic side lighting and sharp shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL8UPNCdgoVH_2K2Af_EpJGJCS0WBG-GC01GalFa4r9Ah4aM6_vRBOsjrRhAUZLEglwWkx9aQtxk-BwwIM9CL35tlGUJPl5WFNw6YKZrT48SMmNiKmzizHRvDV584mJCE9N389M3u5E8QOshrPUIXSA2jAJ3Apcv4HGIzKcAtFPLss_z6rWhIRY3lvgqhFDv6p2N0hAf2KdhjFF3GdL-oHTFWLu-ADSiIakh-EsszU0gldG1jSuMVXtj9GWBJxqlBNDc6j6xABY5XH"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 1: Metodología -->
+<section class="bg-primary py-32 text-white">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="mb-20">
+<h2 class="text-4xl font-bold mb-4 tracking-tight">Metodología de Transferencia</h2>
+<p class="text-on-primary-container max-w-xl">Un sistema lineal de refinamiento intelectual diseñado para transformar datos crudos en activos de influencia global.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-on-primary-fixed-variant">
+<!-- Step 1 -->
+<div class="p-12 border-r border-on-primary-fixed-variant flex flex-col gap-8 group hover:bg-primary-container transition-colors duration-300">
+<div class="text-secondary text-5xl font-black opacity-30 group-hover:opacity-100 transition-opacity">01</div>
+<div>
+<h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Recibir</h3>
+<p class="text-on-primary-container leading-relaxed">Captura de la tesis central, experiencia táctica y visión estratégica del autor. Auditoría inicial de potencial de impacto.</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-secondary mt-auto">input</span>
+</div>
+<!-- Step 2 -->
+<div class="p-12 border-r border-on-primary-fixed-variant flex flex-col gap-8 group hover:bg-primary-container transition-colors duration-300">
+<div class="text-secondary text-5xl font-black opacity-30 group-hover:opacity-100 transition-opacity">02</div>
+<div>
+<h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Procesar</h3>
+<p class="text-on-primary-container leading-relaxed">Refinamiento editorial, estructuración de argumentos y diseño de narrativa arquitectónica bajo estándares de alta gerencia.</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-secondary mt-auto">precision_manufacturing</span>
+</div>
+<!-- Step 3 -->
+<div class="p-12 flex flex-col gap-8 group hover:bg-primary-container transition-colors duration-300">
+<div class="text-secondary text-5xl font-black opacity-30 group-hover:opacity-100 transition-opacity">03</div>
+<div>
+<h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Transmitir</h3>
+<p class="text-on-primary-container leading-relaxed">Codificación final, registro de propiedad intelectual y despliegue en redes de distribución de autoridad mundial.</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-secondary mt-auto">hub</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Beneficios (Bento Grid) -->
+<section class="py-32 bg-surface">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="grid grid-cols-12 gap-8">
+<!-- Column Left: Text Content -->
+<div class="col-span-12 lg:col-span-5">
+<h2 class="text-4xl font-bold mb-8 text-primary leading-tight">Blindaje y Alcance <br/>Sin Fronteras</h2>
+<div class="space-y-12">
+<div class="letterhead-border pl-8">
+<h4 class="text-xs font-bold text-secondary uppercase tracking-widest mb-2">Legal Infrastructure</h4>
+<p class="text-lg text-on-surface font-medium mb-2">Jurisdicción Wyoming / Miami</p>
+<p class="text-on-surface-variant leading-relaxed">Toda obra es registrada ante el U.S. Copyright Office, garantizando una protección jurídica robusta bajo el marco legal de mayor prestigio internacional.</p>
+</div>
+<div class="letterhead-border pl-8">
+<h4 class="text-xs font-bold text-secondary uppercase tracking-widest mb-2">Omnichannel Strategy</h4>
+<p class="text-lg text-on-surface font-medium mb-2">Distribución Global Masiva</p>
+<p class="text-on-surface-variant leading-relaxed">Acceso instantáneo a la red de Ingram, Amazon y Barnes &amp; Noble, colocando su tesis en más de 40,000 puntos de venta físicos y digitales.</p>
+</div>
+</div>
+</div>
+<!-- Column Right: Visual Representation -->
+<div class="col-span-12 lg:col-span-7 grid grid-cols-2 gap-4">
+<div class="bg-surface-container-high h-64 relative">
+<img class="w-full h-full object-cover grayscale brightness-75" data-alt="Vast, modern library with tall bookshelves and cold atmospheric lighting, emphasizing scale and intellectual legacy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATBQbzJumnZoinkX23H-1ROHz74TsqhRq6yQmZ6ovbKynGP5gUs9B8OqWG67gAGCoeE3P0oLLDH0J53HnsOVVujgLEY2qeFLwq2ATimOSMObqd309yDUeLKRkr2L-iOsQfp_HyTanL5oLAmM1XG0EYYuXFnUKGQnm_A7n0KFcL2WUYpcFBYsZ-VuinUolTd4VTmn4HBbiLwOnMR7nW_ANb4JFSBTwA_P7WGH3KYZpVYQATJYdhU2ZnbLB-mV0Iqx68UyeZY1MJGBy4"/>
+<div class="absolute bottom-4 left-4 bg-primary text-white p-4 text-xs font-bold uppercase tracking-widest">Global Vault</div>
+</div>
+<div class="bg-primary h-64 flex items-center justify-center p-12">
+<span class="material-symbols-outlined text-white text-6xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="col-span-2 bg-secondary-container h-80 relative overflow-hidden p-12">
+<div class="relative z-10">
+<h3 class="text-3xl font-bold text-on-secondary-container mb-4 leading-tight">Infraestructura <br/> de Publicación Real</h3>
+<p class="text-on-secondary-container max-w-sm opacity-80 italic">Usted no escribe un libro; usted construye un monumento de credibilidad institucional.</p>
+</div>
+<span class="material-symbols-outlined absolute -right-16 -bottom-16 text-[250px] opacity-10 text-on-secondary-container">language</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Inversión Estratégica (Authority Tiers) -->
+<section class="py-32 bg-surface-container-low border-y border-surface-container-highest">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="text-center mb-24">
+<span class="text-secondary font-bold uppercase tracking-[0.3em] text-xs">Strategic Capital</span>
+<h2 class="text-5xl font-extrabold text-primary mt-4 tracking-tighter">Niveles de Autoridad</h2>
+<p class="text-on-surface-variant mt-4 max-w-2xl mx-auto">La inversión en Nexorum no responde a costos de impresión, sino a la profundidad de la huella institucional que desea proyectar.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+<!-- Tier P1 -->
+<div class="bg-white p-10 border-t-4 border-slate-300 flex flex-col h-full hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+<div class="mb-8">
+<h4 class="text-slate-400 font-bold uppercase tracking-widest text-xs mb-2">Protocolo I</h4>
+<h3 class="text-3xl font-black text-primary">P1. Insight</h3>
+</div>
+<div class="space-y-4 mb-auto">
+<p class="text-sm font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+                                Estructura Editorial Básica
+                            </p>
+<p class="text-sm font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+                                Registro Copyright U.S.
+                            </p>
+<p class="text-sm font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+                                Distribución Digital Amazon
+                            </p>
+</div>
+<div class="mt-12 pt-8 border-t border-slate-100 italic text-xs text-slate-400">Entry-level authority recognition.</div>
+</div>
+<!-- Tier P2 -->
+<div class="bg-white p-10 border-t-4 border-[#365da5] flex flex-col h-full hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+<div class="mb-8">
+<h4 class="text-secondary font-bold uppercase tracking-widest text-xs mb-2">Protocolo II</h4>
+<h3 class="text-3xl font-black text-primary">P2. Presence</h3>
+</div>
+<div class="space-y-4 mb-auto">
+<p class="text-sm font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+                                Diseño Arquitectónico Premium
+                            </p>
+<p class="text-sm font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+                                Estrategia de Lanzamiento Bestseller
+                            </p>
+<p class="text-sm font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+                                Red Ingram Global Distribution
+                            </p>
+</div>
+<div class="mt-12 pt-8 border-t border-slate-100 italic text-xs text-slate-400">Establish market dominance.</div>
+</div>
+<!-- Tier P3 -->
+<div class="bg-primary text-white p-10 border-t-4 border-tertiary-fixed flex flex-col h-full hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+<div class="mb-8">
+<h4 class="text-tertiary-fixed font-bold uppercase tracking-widest text-xs mb-2">Protocolo III</h4>
+<h3 class="text-3xl font-black">P3. Legacy</h3>
+</div>
+<div class="space-y-4 mb-auto">
+<p class="text-sm font-medium text-on-primary-container flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed text-base">check_circle</span>
+                                Ghostwriting Arquitectónico
+                            </p>
+<p class="text-sm font-medium text-on-primary-container flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed text-base">check_circle</span>
+                                Cobertura de Medios Selectos
+                            </p>
+<p class="text-sm font-medium text-on-primary-container flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed text-base">check_circle</span>
+                                Ediciones de Coleccionista Físicas
+                            </p>
+</div>
+<div class="mt-12 pt-8 border-t border-primary-container italic text-xs text-on-primary-container">Total immersion institutional legacy.</div>
+</div>
+<!-- Tier P4 -->
+<div class="bg-white p-10 border-t-4 border-tertiary-container flex flex-col h-full hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-4xl opacity-40">grade</span>
+</div>
+<div class="mb-8">
+<h4 class="text-on-tertiary-container font-bold uppercase tracking-widest text-xs mb-2">Protocolo IV</h4>
+<h3 class="text-3xl font-black text-primary">P4. Nexo Elite</h3>
+</div>
+<div class="space-y-4 mb-auto">
+<p class="text-sm font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-base">verified</span>
+                                Consultoría de Marca Personal 1:1
+                            </p>
+<p class="text-sm font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-base">verified</span>
+                                Distribución Privada Institucional
+                            </p>
+<p class="text-sm font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-base">verified</span>
+                                Presencia en Foros de Alto Nivel
+                            </p>
+</div>
+<div class="mt-12 pt-8 border-t border-slate-100 italic text-xs text-slate-400">Exclusive invite-only framework.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-screen-2xl mx-auto px-12 py-32 flex flex-col items-center text-center">
+<h2 class="text-4xl md:text-5xl font-black text-primary max-w-4xl leading-tight mb-12">¿Su conocimiento está protegido o es solo ruido en el mercado?</h2>
+<button class="bg-[#000413] px-16 py-6 text-white font-bold tracking-widest hover:bg-secondary transition-all duration-300 group flex items-center gap-4">
+                SOLICITAR AUDITORÍA DE AUTORIDAD
+                <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+</button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#000413] w-full py-16 px-12 flex flex-col items-start gap-8">
+<div class="w-full flex flex-col md:flex-row justify-between items-start gap-12 max-w-screen-2xl mx-auto">
+<div class="space-y-6">
+<span class="text-lg font-bold text-[#365da5]">NEXORUM</span>
+<p class="text-slate-500 max-w-xs font-body italic text-sm">Elevating professional standards through architectural design and strategic foresight.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+<div class="flex flex-col gap-4">
+<h5 class="text-amber-500 font-bold uppercase text-xs tracking-widest">Navegación</h5>
+<a class="text-slate-500 hover:text-white transition-colors text-sm" href="#">Filosofía</a>
+<a class="text-slate-500 hover:text-white transition-colors text-sm" href="#">Divisiones</a>
+<a class="text-slate-500 hover:text-white transition-colors text-sm" href="#">Gobierno Corporativo</a>
+<a class="text-slate-500 hover:text-white transition-colors text-sm" href="#">Contacto</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="text-amber-500 font-bold uppercase text-xs tracking-widest">Legal</h5>
+<a class="text-slate-500 hover:text-white transition-colors text-sm" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-white transition-colors text-sm" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+<div class="w-full pt-12 border-t border-slate-900 mt-12 flex justify-between items-center max-w-screen-2xl mx-auto">
+<span class="text-slate-500 text-xs tracking-tight">Nexorum Holding LLC. Wyoming | Miami. All rights reserved.</span>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-white">language</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-white">share</span>
+</div>
+</div>
+</footer>
+</body></html>

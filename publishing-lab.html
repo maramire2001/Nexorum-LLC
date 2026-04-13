@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nexorum Publishing Lab — Publica tu libro en Estados Unidos en 24 horas</title>
+  <meta name="description" content="Publicamos tu libro en Estados Unidos con ISBN, Copyright federal y distribución en Amazon US, Barnes & Noble e Ingram. Soberanía intelectual en 24 horas."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'nx-navy':       '#000413',
+            'nx-navy-mid':   '#0a192f',
+            'nx-navy-light': '#112240',
+            'nx-cobalt':     '#365da5',
+            'nx-cobalt-br':  '#4a7fd4',
+            'nx-gold':       '#e9c176',
+            'nx-surface':    '#f9f9fa',
+            'nx-surface-lo': '#f0f0f2',
+          },
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body:    ['"Work Sans"', 'sans-serif'],
+          },
+          borderRadius: { DEFAULT:'0px', sm:'0px', md:'0px', lg:'0px', xl:'0px', '2xl':'0px', full:'9999px' }
+        }
+      }
+    }
+  </script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Work Sans',sans-serif;background:#f9f9fa;color:#1a1c1d;overflow-x:hidden}
+    .nav-glass{background:rgba(0,4,19,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(74,127,212,.18)}
+    .hero-bg{background:linear-gradient(135deg,#000413 0%,#0a192f 50%,#0d2244 100%)}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(54,93,165,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(54,93,165,.07) 1px,transparent 1px);background-size:64px 64px}
+    .label-tag{font-family:'Work Sans',sans-serif;font-weight:500;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#e9c176}
+    .gold-bar{display:inline-block;width:36px;height:2px;background:#e9c176;flex-shrink:0}
+    .btn-wa{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#25D366;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .15s}
+    .btn-wa:hover{background:#128C7E}
+    .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#365da5;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .15s}
+    .btn-primary:hover{background:#4a7fd4}
+    .btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:border-color .15s,color .15s}
+    .btn-ghost:hover{border-color:#e9c176;color:#e9c176}
+    .lang-btn{font-family:'Work Sans',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.45);padding:4px 6px;border-bottom:2px solid transparent;transition:all .15s;background:none;border-left:0;border-right:0;border-top:0;cursor:pointer}
+    .lang-btn.active{color:#e9c176;border-bottom-color:#e9c176}
+    .rv{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+    .rv.in{opacity:1;transform:translateY(0)}
+    /* Package cards */
+    .pkg{border-top:3px solid #c5c6cd;transition:border-color .2s,transform .2s,box-shadow .2s;position:relative}
+    .pkg:hover{border-top-color:#365da5;transform:translateY(-4px);box-shadow:0 20px 56px rgba(0,4,19,.12)}
+    .pkg.featured{border-top:3px solid #e9c176;background:#000413;color:#fff}
+    .pkg.featured:hover{border-top-color:#e9c176}
+    /* Feature check */
+    .feat-yes::before{content:'✓';color:#e9c176;font-weight:700;margin-right:8px}
+    /* Pillar */
+    .pillar-card{border-bottom:3px solid transparent;transition:border-color .2s}
+    .pillar-card:hover{border-bottom-color:#e9c176}
+    /* Process step */
+    .step-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:3.5rem;line-height:1;color:rgba(54,93,165,.12)}
+    #mob-menu{display:none}
+    #mob-menu.open{display:flex}
+    @media(max-width:768px){.hero-h1{font-size:2.2rem!important}}
+  </style>
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════════ NAV ══════════════════════════════════════════ -->
+<nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+    <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+        <path d="M10 38 L10 32 C6 30 3 25.5 3 20 C3 11.2 9.7 4 18 4 C26.3 4 33 11.2 33 20 C33 25.5 30 30 26 32 L26 38 Z" stroke="#4a7fd4" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+        <circle cx="15" cy="15" r="2.2" fill="#e9c176"/><circle cx="23" cy="11" r="1.5" fill="#4a7fd4" opacity=".85"/><circle cx="28" cy="19" r="1.8" fill="#4a7fd4" opacity=".85"/><circle cx="22" cy="26" r="1.4" fill="#4a7fd4" opacity=".85"/><circle cx="14" cy="24" r="1.8" fill="#e9c176" opacity=".75"/><circle cx="19" cy="32" r="1.2" fill="#4a7fd4" opacity=".6"/>
+        <line x1="15" y1="15" x2="23" y2="11" stroke="#4a7fd4" stroke-width=".8" opacity=".5"/><line x1="23" y1="11" x2="28" y2="19" stroke="#4a7fd4" stroke-width=".8" opacity=".5"/><line x1="28" y1="19" x2="22" y2="26" stroke="#4a7fd4" stroke-width=".8" opacity=".5"/><line x1="22" y1="26" x2="14" y2="24" stroke="#4a7fd4" stroke-width=".8" opacity=".5"/><line x1="15" y1="15" x2="14" y2="24" stroke="#4a7fd4" stroke-width=".8" opacity=".5"/><line x1="22" y1="26" x2="19" y2="32" stroke="#4a7fd4" stroke-width=".8" opacity=".5"/>
+      </svg>
+      <div>
+        <div class="text-white font-display font-black text-sm tracking-widest uppercase leading-none">NEXORUM</div>
+        <div class="text-nx-gold font-body font-medium text-xs tracking-widest uppercase leading-none mt-0.5">PUBLISHING LAB</div>
+      </div>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="index.html" class="text-gray-400 hover:text-white font-body text-sm font-medium transition-colors tracking-wide" data-es="← Holding" data-en="← Holding">← Holding</a>
+      <a href="enterprise-automations.html" class="text-gray-400 hover:text-white font-body text-sm font-medium transition-colors tracking-wide">Enterprise Automations</a>
+      <a href="#paquetes" class="text-gray-400 hover:text-white font-body text-sm font-medium transition-colors tracking-wide" data-es="Paquetes" data-en="Packages">Paquetes</a>
+      <a href="#proceso" class="text-gray-400 hover:text-white font-body text-sm font-medium transition-colors tracking-wide" data-es="Proceso" data-en="Process">Proceso</a>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-0.5">
+        <button onclick="setLang('es')" class="lang-btn active" id="btn-es">ES</button>
+        <span class="text-gray-600 text-xs">|</span>
+        <button onclick="setLang('en')" class="lang-btn" id="btn-en">EN</button>
+      </div>
+      <a href="https://wa.me/525664445643?text=Hola%20Nexorum%2C%20me%20interesa%20publicar%20mi%20libro%20en%20Estados%20Unidos."
+         target="_blank"
+         class="hidden md:flex items-center gap-2 bg-nx-cobalt hover:bg-nx-cobalt-br text-white px-4 py-2.5 text-xs font-display font-bold tracking-widest uppercase transition-colors">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-es="Publicar mi Libro" data-en="Publish My Book">Publicar mi Libro</span>
+      </a>
+      <button onclick="toggleMob()" class="lg:hidden text-white p-1">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mob-menu" class="flex-col bg-nx-navy border-t border-white/10 px-6 py-4 gap-4 lg:hidden">
+    <a href="index.html" class="text-gray-300 font-body text-sm py-2 border-b border-white/10" data-es="← Nexorum Global" data-en="← Nexorum Global">← Nexorum Global</a>
+    <a href="#paquetes" onclick="toggleMob()" class="text-gray-300 font-body text-sm py-2 border-b border-white/10" data-es="Paquetes" data-en="Packages">Paquetes</a>
+    <a href="https://wa.me/525664445643?text=Hola%20Nexorum%2C%20quiero%20publicar%20mi%20libro." target="_blank" class="btn-wa mt-2 justify-center">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-es="Publicar mi Libro" data-en="Publish My Book">Publicar mi Libro</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════ HERO ══════════════════════════════════════════ -->
+<section class="hero-bg relative min-h-screen flex items-center overflow-hidden pt-16">
+  <div class="hero-grid"></div>
+  <!-- Decorative book icon backdrop -->
+  <div class="absolute right-0 top-0 bottom-0 w-1/2 flex items-center justify-end pr-16 opacity-5 pointer-events-none">
+    <svg viewBox="0 0 200 260" class="w-96 h-auto" fill="white"><rect x="20" y="10" width="140" height="200" rx="4"/><rect x="30" y="30" width="100" height="4"/><rect x="30" y="45" width="80" height="4"/><rect x="30" y="60" width="110" height="4"/><rect x="30" y="75" width="60" height="4"/><rect x="30" y="110" width="100" height="4"/><rect x="30" y="125" width="90" height="4"/><rect x="30" y="140" width="70" height="4"/><rect x="30" y="155" width="95" height="4"/></svg>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-28 w-full">
+    <div class="max-w-4xl">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="gold-bar"></div>
+        <span class="label-tag" data-es="NEXORUM PUBLISHING LAB · EDITORIAL DE AUTORIDAD" data-en="NEXORUM PUBLISHING LAB · AUTHORITY PUBLISHING">NEXORUM PUBLISHING LAB · EDITORIAL DE AUTORIDAD</span>
+      </div>
+
+      <h1 class="hero-h1 font-display font-black text-white leading-none tracking-tight mb-8" style="font-size:clamp(2.4rem,6.5vw,5rem);">
+        <span data-es="Publicamos tu libro" data-en="We publish your book">Publicamos tu libro</span><br/>
+        <span class="text-nx-gold" data-es="en Estados Unidos" data-en="in the United States">en Estados Unidos</span><br/>
+        <span data-es="en 24 horas." data-en="in 24 hours.">en 24 horas.</span>
+      </h1>
+
+      <p class="font-body text-gray-300 max-w-2xl mb-10 leading-relaxed text-lg"
+         data-es="Sin burocracia. Sin intermediarios. Con ISBN federal, Copyright del U.S. Copyright Office y distribución directa en Amazon US, Barnes &amp; Noble e Ingram — la red de 39,000 librerías más grande del mundo."
+         data-en="No bureaucracy. No intermediaries. With federal ISBN, U.S. Copyright Office registration, and direct distribution on Amazon US, Barnes &amp; Noble, and Ingram — the world's largest network of 39,000 bookstores.">
+        Sin burocracia. Sin intermediarios. Con ISBN federal, Copyright del U.S. Copyright Office y distribución directa en Amazon US, Barnes &amp; Noble e Ingram — la red de 39,000 librerías más grande del mundo.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="https://wa.me/525664445643?text=Hola%20Nexorum%2C%20me%20interesa%20publicar%20mi%20libro%20en%20Estados%20Unidos."
+           target="_blank" class="btn-wa">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-es="Quiero publicar mi libro" data-en="I want to publish my book">Quiero publicar mi libro</span>
+        </a>
+        <a href="#paquetes" class="btn-ghost">
+          <span data-es="Ver Paquetes" data-en="View Packages">Ver Paquetes</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="square" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="mt-14 pt-8 border-t border-white/10 flex flex-wrap items-center gap-8">
+        <div>
+          <div class="font-display font-black text-nx-gold" style="font-size:1.8rem;line-height:1">24h</div>
+          <div class="text-gray-500 font-body text-xs tracking-widest uppercase mt-0.5" data-es="Ejecución" data-en="Execution">Ejecución</div>
+        </div>
+        <div class="w-px h-8 bg-white/10"></div>
+        <div>
+          <div class="font-display font-black text-nx-gold" style="font-size:1.8rem;line-height:1">39K</div>
+          <div class="text-gray-500 font-body text-xs tracking-widest uppercase mt-0.5" data-es="Librerías" data-en="Bookstores">Librerías</div>
+        </div>
+        <div class="w-px h-8 bg-white/10"></div>
+        <div>
+          <div class="font-display font-black text-nx-gold" style="font-size:1.8rem;line-height:1">US</div>
+          <div class="text-gray-500 font-body text-xs tracking-widest uppercase mt-0.5" data-es="ISBN Federal" data-en="Federal ISBN">ISBN Federal</div>
+        </div>
+        <div class="w-px h-8 bg-white/10"></div>
+        <div>
+          <div class="font-display font-black text-nx-gold" style="font-size:1.8rem;line-height:1">©</div>
+          <div class="text-gray-500 font-body text-xs tracking-widest uppercase mt-0.5" data-es="Copyright Office" data-en="Copyright Office">Copyright Office</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ VENTAJA COMPETITIVA ══════════════════════════════════════════ -->
+<section class="bg-white py-28 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="rv mb-16">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="gold-bar"></div>
+        <span class="label-tag" data-es="LA VENTAJA INNEGOCIABLE" data-en="THE NON-NEGOTIABLE ADVANTAGE">LA VENTAJA INNEGOCIABLE</span>
+      </div>
+      <h2 class="font-display font-black text-nx-navy text-4xl md:text-5xl tracking-tight leading-none"
+          data-es="Ecosistema de Poder de Mercado." data-en="Market Power Ecosystem.">Ecosistema de Poder de Mercado.</h2>
+      <p class="font-body text-gray-500 mt-5 max-w-2xl text-lg leading-relaxed"
+         data-es="No vendemos trámites. Construimos tu arquitectura de autor con posicionamiento internacional, protección real y mercado directo desde el día uno."
+         data-en="We don't sell paperwork. We build your author architecture with international positioning, real protection, and direct market access from day one.">
+        No vendemos trámites. Construimos tu arquitectura de autor con posicionamiento internacional, protección real y mercado directo desde el día uno.
+      </p>
+    </div>
+
+    <div class="rv grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100">
+      <!-- Pillar 1 -->
+      <div class="pillar-card bg-white p-8">
+        <div class="w-10 h-10 bg-nx-cobalt flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="square" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+        </div>
+        <div class="label-tag mb-3 text-nx-cobalt" style="color:#365da5" data-es="VELOCIDAD" data-en="SPEED">VELOCIDAD</div>
+        <h3 class="font-display font-bold text-nx-navy text-xl mb-3 leading-tight"
+            data-es="Horas, no semanas" data-en="Hours, not weeks">Horas, no semanas</h3>
+        <p class="font-body text-gray-500 text-sm leading-relaxed"
+           data-es="Ejecución en 24 horas vs. semanas de burocracia local. Tu obra en el catálogo de EE. UU. antes de que la competencia termine el papeleo."
+           data-en="24-hour execution vs. weeks of local bureaucracy. Your work in the U.S. catalog before competitors finish their paperwork.">
+          Ejecución en 24 horas vs. semanas de burocracia local. Tu obra en el catálogo de EE. UU. antes de que la competencia termine el papeleo.
+        </p>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="pillar-card bg-nx-surface-lo p-8">
+        <div class="w-10 h-10 bg-nx-navy flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-nx-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="square" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+        </div>
+        <div class="label-tag mb-3" style="color:#365da5" data-es="PRESENCIA GLOBAL" data-en="GLOBAL PRESENCE">PRESENCIA GLOBAL</div>
+        <h3 class="font-display font-bold text-nx-navy text-xl mb-3 leading-tight"
+            data-es="Publisher oficial de EE. UU." data-en="Official U.S. Publisher">Publisher oficial de EE. UU.</h3>
+        <p class="font-body text-gray-500 text-sm leading-relaxed"
+           data-es="Nexorum LLC figura como tu publisher oficial. Tu obra entra al catálogo editorial de EE. UU. con todo el respaldo de una entidad legal americana."
+           data-en="Nexorum LLC is listed as your official publisher. Your work enters the U.S. editorial catalog with the full backing of an American legal entity.">
+          Nexorum LLC figura como tu publisher oficial. Tu obra entra al catálogo editorial de EE. UU. con todo el respaldo de una entidad legal americana.
+        </p>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="pillar-card bg-white p-8">
+        <div class="w-10 h-10 bg-nx-cobalt flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="square" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+        </div>
+        <div class="label-tag mb-3" style="color:#365da5" data-es="PROTECCIÓN REAL" data-en="REAL PROTECTION">PROTECCIÓN REAL</div>
+        <h3 class="font-display font-bold text-nx-navy text-xl mb-3 leading-tight"
+            data-es="El sistema legal más robusto del mundo" data-en="The world's most robust legal system">El sistema legal más robusto del mundo</h3>
+        <p class="font-body text-gray-500 text-sm leading-relaxed"
+           data-es="Registro en el U.S. Copyright Office con protección internacional bajo el Convenio de Berna. La propiedad intelectual más blindada que existe."
+           data-en="Registration with the U.S. Copyright Office with international protection under the Berne Convention. The most protected intellectual property that exists.">
+          Registro en el U.S. Copyright Office con protección internacional bajo el Convenio de Berna. La propiedad intelectual más blindada que existe.
+        </p>
+      </div>
+
+      <!-- Pillar 4 -->
+      <div class="pillar-card bg-nx-navy p-8">
+        <div class="w-10 h-10 bg-nx-gold flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-nx-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="square" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z"/></svg>
+        </div>
+        <div class="label-tag mb-3" style="color:#e9c176" data-es="MERCADO DIRECTO" data-en="DIRECT MARKET">MERCADO DIRECTO</div>
+        <h3 class="font-display font-bold text-white text-xl mb-3 leading-tight"
+            data-es="Amazon, Ingram, B&amp;N. Sin intermediarios." data-en="Amazon, Ingram, B&amp;N. No intermediaries.">Amazon, Ingram, B&amp;N. Sin intermediarios.</h3>
+        <p class="font-body text-gray-400 text-sm leading-relaxed"
+           data-es="Acceso directo a Amazon US, Ingram y Barnes &amp; Noble. Tu obra disponible en 39,000 librerías alrededor del mundo desde el primer día."
+           data-en="Direct access to Amazon US, Ingram, and Barnes &amp; Noble. Your work available in 39,000 bookstores worldwide from day one.">
+          Acceso directo a Amazon US, Ingram y Barnes &amp; Noble. Tu obra disponible en 39,000 librerías alrededor del mundo desde el primer día.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ PAQUETES ══════════════════════════════════════════ -->
+<section id="paquetes" class="bg-nx-surface-lo py-28 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="rv mb-16">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="gold-bar"></div>
+        <span class="label-tag" data-es="EXECUTIVE BRIEFING — NIVELES DE INVERSIÓN" data-en="EXECUTIVE BRIEFING — INVESTMENT LEVELS">EXECUTIVE BRIEFING — NIVELES DE INVERSIÓN</span>
+      </div>
+      <h2 class="font-display font-black text-nx-navy text-4xl md:text-5xl tracking-tight leading-none"
+          data-es="Arquitectura de Autor." data-en="Author Architecture.">Arquitectura de Autor.</h2>
+      <p class="font-body text-gray-500 mt-5 max-w-2xl text-lg leading-relaxed"
+         data-es="Cuatro niveles de consultoría estratégica, diseñados para distintos objetivos de posicionamiento y monetización de autoridad intelectual."
+         data-en="Four levels of strategic consulting, designed for different intellectual authority positioning and monetization objectives.">
+        Cuatro niveles de consultoría estratégica, diseñados para distintos objetivos de posicionamiento y monetización de autoridad intelectual.
+      </p>
+    </div>
+
+    <div class="rv grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+
+      <!-- P1: Global Shield -->
+      <div class="pkg bg-white p-8">
+        <div class="label-tag mb-3" style="color:#365da5">P1</div>
+        <h3 class="font-display font-black text-nx-navy text-2xl mb-2 leading-tight"
+            data-es="Global Shield" data-en="Global Shield">Global Shield</h3>
+        <p class="font-body text-nx-gold font-semibold text-sm mb-5"
+           data-es="El núcleo legal" data-en="The legal core">El núcleo legal</p>
+        <p class="font-body text-gray-500 text-sm leading-relaxed mb-6"
+           data-es="El paquete base esencial. Protección legal federal de tu propiedad intelectual en el sistema más robusto del planeta."
+           data-en="The essential base package. Federal legal protection of your intellectual property in the most robust system on the planet.">
+          El paquete base esencial. Protección legal federal de tu propiedad intelectual en el sistema más robusto del planeta.
+        </p>
+        <div class="space-y-3 mb-8">
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="Registro Copyright — U.S. Copyright Office" data-en="U.S. Copyright Office Registration">Registro Copyright — U.S. Copyright Office</p>
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="ISBN Federal (Estados Unidos)" data-en="Federal ISBN (United States)">ISBN Federal (Estados Unidos)</p>
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="Nexorum LLC como Publisher oficial" data-en="Nexorum LLC as official Publisher">Nexorum LLC como Publisher oficial</p>
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="Certificado de propiedad intelectual" data-en="Intellectual property certificate">Certificado de propiedad intelectual</p>
+        </div>
+        <a href="https://wa.me/525664445643?text=Me%20interesa%20el%20paquete%20P1%20Global%20Shield%20de%20Nexorum%20Publishing%20Lab."
+           target="_blank" class="btn-primary w-full justify-center text-xs">
+          <span data-es="Solicitar P1" data-en="Request P1">Solicitar P1</span>
+        </a>
+      </div>
+
+      <!-- P2: Autor Visible -->
+      <div class="pkg bg-white p-8">
+        <div class="label-tag mb-3" style="color:#365da5">P2</div>
+        <h3 class="font-display font-black text-nx-navy text-2xl mb-2 leading-tight"
+            data-es="Autor Visible" data-en="Visible Author">Autor Visible</h3>
+        <p class="font-body text-nx-gold font-semibold text-sm mb-5"
+           data-es="Identidad editorial premium" data-en="Premium editorial identity">Identidad editorial premium</p>
+        <p class="font-body text-gray-500 text-sm leading-relaxed mb-6"
+           data-es="Todo lo del P1 más diseño editorial premium, identidad de autor y metadata comercial optimizada para máxima visibilidad en buscadores y plataformas."
+           data-en="Everything in P1 plus premium editorial design, author identity, and commercially optimized metadata for maximum visibility on search engines and platforms.">
+          Todo lo del P1 más diseño editorial premium, identidad de autor y metadata comercial optimizada para máxima visibilidad en buscadores y plataformas.
+        </p>
+        <div class="space-y-3 mb-8">
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="Todo el P1 incluido" data-en="All P1 included">Todo el P1 incluido</p>
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="Diseño de portada premium" data-en="Premium cover design">Diseño de portada premium</p>
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="Maquetación editorial profesional" data-en="Professional editorial layout">Maquetación editorial profesional</p>
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="Metadata comercial optimizada (SEO)" data-en="Optimized commercial metadata (SEO)">Metadata comercial optimizada (SEO)</p>
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="Kit de identidad de autor" data-en="Author identity kit">Kit de identidad de autor</p>
+        </div>
+        <a href="https://wa.me/525664445643?text=Me%20interesa%20el%20paquete%20P2%20Autor%20Visible%20de%20Nexorum%20Publishing%20Lab."
+           target="_blank" class="btn-primary w-full justify-center text-xs">
+          <span data-es="Solicitar P2" data-en="Request P2">Solicitar P2</span>
+        </a>
+      </div>
+
+      <!-- P3: Impacto Digital (FEATURED) -->
+      <div class="pkg featured p-8">
+        <div class="absolute top-0 right-0 bg-nx-gold text-nx-navy font-display font-black text-xs px-3 py-1.5 tracking-wider uppercase" data-es="MÁS POPULAR" data-en="MOST POPULAR">MÁS POPULAR</div>
+        <div class="label-tag mb-3" style="color:#e9c176">P3</div>
+        <h3 class="font-display font-black text-white text-2xl mb-2 leading-tight"
+            data-es="Impacto Digital" data-en="Digital Impact">Impacto Digital</h3>
+        <p class="font-body text-nx-gold font-semibold text-sm mb-5"
+           data-es="Presencia digital completa" data-en="Complete digital presence">Presencia digital completa</p>
+        <p class="font-body text-gray-400 text-sm leading-relaxed mb-6"
+           data-es="Todo lo del P2 más un ecosistema digital completo: Landing Page individual del libro, Blog de Autor y paquete de contenido para redes sociales."
+           data-en="Everything in P2 plus a complete digital ecosystem: individual book Landing Page, Author Blog, and social media content package.">
+          Todo lo del P2 más un ecosistema digital completo: Landing Page individual del libro, Blog de Autor y paquete de contenido para redes sociales.
+        </p>
+        <div class="space-y-3 mb-8">
+          <p class="font-body text-gray-300 text-sm feat-yes" data-es="Todo el P2 incluido" data-en="All P2 included">Todo el P2 incluido</p>
+          <p class="font-body text-gray-300 text-sm feat-yes" data-es="Landing Page del libro (HTML/Tailwind)" data-en="Book Landing Page (HTML/Tailwind)">Landing Page del libro (HTML/Tailwind)</p>
+          <p class="font-body text-gray-300 text-sm feat-yes" data-es="Blog de Autor configurado" data-en="Author Blog configured">Blog de Autor configurado</p>
+          <p class="font-body text-gray-300 text-sm feat-yes" data-es="10 Reels/TikToks micro-contenido" data-en="10 micro-content Reels/TikToks">10 Reels/TikToks micro-contenido</p>
+          <p class="font-body text-gray-300 text-sm feat-yes" data-es="Estrategia de lanzamiento digital" data-en="Digital launch strategy">Estrategia de lanzamiento digital</p>
+        </div>
+        <a href="https://wa.me/525664445643?text=Me%20interesa%20el%20paquete%20P3%20Impacto%20Digital%20de%20Nexorum%20Publishing%20Lab."
+           target="_blank" class="btn-wa w-full justify-center text-xs">
+          <span data-es="Solicitar P3" data-en="Request P3">Solicitar P3</span>
+        </a>
+      </div>
+
+      <!-- P4: Autoridad Total -->
+      <div class="pkg bg-white p-8">
+        <div class="label-tag mb-3" style="color:#365da5">P4</div>
+        <h3 class="font-display font-black text-nx-navy text-2xl mb-2 leading-tight"
+            data-es="Autoridad Total" data-en="Total Authority">Autoridad Total</h3>
+        <p class="font-body text-nx-gold font-semibold text-sm mb-5"
+           data-es="Ecosistema de monetización" data-en="Monetization ecosystem">Ecosistema de monetización</p>
+        <p class="font-body text-gray-500 text-sm leading-relaxed mb-6"
+           data-es="El ecosistema completo. Monetización, producción de podcast, distribución global vía Ingram y estrategia de posicionamiento de autoridad a largo plazo."
+           data-en="The complete ecosystem. Monetization, podcast production, global distribution via Ingram, and long-term authority positioning strategy.">
+          El ecosistema completo. Monetización, producción de podcast, distribución global vía Ingram y estrategia de posicionamiento de autoridad a largo plazo.
+        </p>
+        <div class="space-y-3 mb-8">
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="Todo el P3 incluido" data-en="All P3 included">Todo el P3 incluido</p>
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="Producción de Podcast (4 episodios)" data-en="Podcast Production (4 episodes)">Producción de Podcast (4 episodios)</p>
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="Distribución Ingram (39,000 librerías)" data-en="Ingram Distribution (39,000 bookstores)">Distribución Ingram (39,000 librerías)</p>
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="Ecosistema de monetización digital" data-en="Digital monetization ecosystem">Ecosistema de monetización digital</p>
+          <p class="font-body text-gray-600 text-sm feat-yes" data-es="Estrategia de distribución global" data-en="Global distribution strategy">Estrategia de distribución global</p>
+        </div>
+        <a href="https://wa.me/525664445643?text=Me%20interesa%20el%20paquete%20P4%20Autoridad%20Total%20de%20Nexorum%20Publishing%20Lab."
+           target="_blank" class="btn-primary w-full justify-center text-xs">
+          <span data-es="Solicitar P4" data-en="Request P4">Solicitar P4</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="rv mt-8 bg-white border-l-4 border-nx-gold p-6">
+      <p class="font-body text-gray-500 text-sm leading-relaxed"
+         data-es="Todos los paquetes incluyen consultoría estratégica inicial. Los precios son personalizados según el proyecto. Contacta a través de WhatsApp para recibir tu propuesta en menos de 24 horas."
+         data-en="All packages include initial strategic consultation. Pricing is customized per project. Contact via WhatsApp to receive your proposal in less than 24 hours.">
+        Todos los paquetes incluyen consultoría estratégica inicial. Los precios son personalizados según el proyecto. Contacta a través de WhatsApp para recibir tu propuesta en menos de 24 horas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ PROCESO ══════════════════════════════════════════ -->
+<section id="proceso" class="bg-white py-28 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="rv mb-16">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="gold-bar"></div>
+        <span class="label-tag" data-es="EJECUCIÓN ÁGIL" data-en="AGILE EXECUTION">EJECUCIÓN ÁGIL</span>
+      </div>
+      <h2 class="font-display font-black text-nx-navy text-4xl md:text-5xl tracking-tight leading-none"
+          data-es="Del manuscrito al catálogo de EE. UU." data-en="From manuscript to the U.S. catalog.">Del manuscrito al catálogo de EE. UU.</h2>
+    </div>
+
+    <div class="rv grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-nx-surface-lo p-8">
+        <div class="step-num mb-2">01</div>
+        <h4 class="font-display font-bold text-nx-navy text-lg mb-3" data-es="Consulta Estratégica" data-en="Strategic Consultation">Consulta Estratégica</h4>
+        <p class="font-body text-gray-500 text-sm leading-relaxed" data-es="Enviamos tu diagnóstico inicial y propuesta personalizada en menos de 24 horas vía WhatsApp." data-en="We send your initial diagnosis and personalized proposal in less than 24 hours via WhatsApp.">Enviamos tu diagnóstico inicial y propuesta personalizada en menos de 24 horas vía WhatsApp.</p>
+      </div>
+      <div class="bg-nx-surface-lo p-8">
+        <div class="step-num mb-2">02</div>
+        <h4 class="font-display font-bold text-nx-navy text-lg mb-3" data-es="Registro Legal" data-en="Legal Registration">Registro Legal</h4>
+        <p class="font-body text-gray-500 text-sm leading-relaxed" data-es="Tramitamos tu ISBN federal y Copyright ante el U.S. Copyright Office bajo la entidad Nexorum LLC." data-en="We process your federal ISBN and Copyright with the U.S. Copyright Office under the Nexorum LLC entity.">Tramitamos tu ISBN federal y Copyright ante el U.S. Copyright Office bajo la entidad Nexorum LLC.</p>
+      </div>
+      <div class="bg-nx-surface-lo p-8">
+        <div class="step-num mb-2">03</div>
+        <h4 class="font-display font-bold text-nx-navy text-lg mb-3" data-es="Producción Editorial" data-en="Editorial Production">Producción Editorial</h4>
+        <p class="font-body text-gray-500 text-sm leading-relaxed" data-es="Diseño, maquetación y metadata según el paquete elegido. Preparación del archivo para distribución." data-en="Design, layout, and metadata according to the chosen package. File preparation for distribution.">Diseño, maquetación y metadata según el paquete elegido. Preparación del archivo para distribución.</p>
+      </div>
+      <div class="bg-nx-navy p-8">
+        <div class="font-display font-black text-white opacity-10 mb-2" style="font-size:3.5rem;line-height:1">04</div>
+        <h4 class="font-display font-bold text-white text-lg mb-3" data-es="Distribución Global" data-en="Global Distribution">Distribución Global</h4>
+        <p class="font-body text-gray-400 text-sm leading-relaxed" data-es="Tu obra disponible en Amazon US, Ingram y las plataformas incluidas en tu paquete. Soberanía entregada." data-en="Your work available on Amazon US, Ingram, and the platforms included in your package. Sovereignty delivered.">Tu obra disponible en Amazon US, Ingram y las plataformas incluidas en tu paquete. Soberanía entregada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ CTA ══════════════════════════════════════════ -->
+<section class="bg-nx-navy py-20 px-6">
+  <div class="max-w-4xl mx-auto text-center rv">
+    <div class="flex justify-center mb-6"><div class="gold-bar" style="width:48px"></div></div>
+    <h2 class="font-display font-black text-white text-3xl md:text-5xl tracking-tight leading-tight mb-6"
+        data-es="Tu voz. Tu ISBN. Tu catálogo en EE. UU." data-en="Your voice. Your ISBN. Your U.S. catalog.">
+      Tu voz. Tu ISBN. Tu catálogo en EE. UU.
+    </h2>
+    <p class="font-body text-gray-400 text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
+       data-es="Soberanía intelectual entregada en 24 horas. Escríbenos por WhatsApp y recibe tu propuesta personalizada hoy."
+       data-en="Intellectual sovereignty delivered in 24 hours. Message us on WhatsApp and receive your personalized proposal today.">
+      Soberanía intelectual entregada en 24 horas. Escríbenos por WhatsApp y recibe tu propuesta personalizada hoy.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="https://wa.me/525664445643?text=Hola%20Nexorum%2C%20quiero%20publicar%20mi%20libro%20en%20Estados%20Unidos%20y%20recibir%20mi%20propuesta." target="_blank" class="btn-wa">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-es="Publicar mi libro ahora" data-en="Publish my book now">Publicar mi libro ahora</span>
+      </a>
+      <a href="index.html" class="btn-ghost">
+        <span data-es="← Nexorum Global" data-en="← Nexorum Global">← Nexorum Global</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ FOOTER ══════════════════════════════════════════ -->
+<footer class="bg-nx-navy border-t border-white/8 py-14 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div>
+            <div class="text-white font-display font-black text-sm tracking-widest uppercase leading-none">NEXORUM</div>
+            <div class="text-nx-gold font-body font-medium text-xs tracking-widest uppercase leading-none mt-0.5">PUBLISHING LAB</div>
+          </div>
+        </div>
+        <p class="font-body text-gray-500 text-sm leading-relaxed max-w-xs" data-es="División editorial de Nexorum LLC. Publicación internacional con jurisdicción y amparo legal de Wyoming, Estados Unidos." data-en="Editorial division of Nexorum LLC. International publishing under Wyoming, United States legal jurisdiction and protection.">División editorial de Nexorum LLC. Publicación internacional con jurisdicción y amparo legal de Wyoming, Estados Unidos.</p>
+      </div>
+      <div>
+        <div class="label-tag mb-5" data-es="NEXORUM GLOBAL" data-en="NEXORUM GLOBAL">NEXORUM GLOBAL</div>
+        <div class="space-y-3">
+          <a href="index.html" class="block text-gray-400 hover:text-white font-body text-sm transition-colors" data-es="← Home Holding" data-en="← Holding Home">← Home Holding</a>
+          <a href="enterprise-automations.html" class="block text-gray-400 hover:text-white font-body text-sm transition-colors">Enterprise Automations</a>
+        </div>
+      </div>
+      <div>
+        <div class="label-tag mb-5" data-es="INFORMACIÓN LEGAL" data-en="LEGAL INFORMATION">INFORMACIÓN LEGAL</div>
+        <div class="space-y-2 text-gray-500 font-body text-xs leading-relaxed">
+          <div><span class="text-gray-400">Entidad:</span> Nexorum LLC</div>
+          <div><span class="text-gray-400">Estado:</span> Wyoming, United States</div>
+          <div><span class="text-gray-400">Expediente:</span> 2026-001868114</div>
+          <div><span class="text-gray-400">Constitución:</span> January 15, 2026</div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-gray-600 font-body text-xs" data-es="© 2026 Nexorum LLC — Nexorum Publishing Lab. Todos los derechos reservados. Wyoming, United States." data-en="© 2026 Nexorum LLC — Nexorum Publishing Lab. All rights reserved. Wyoming, United States.">© 2026 Nexorum LLC — Nexorum Publishing Lab. Todos los derechos reservados. Wyoming, United States.</p>
+      <p class="text-gray-700 font-body text-xs" data-es="Soberanía Intelectual entregada en 24 horas." data-en="Intellectual Sovereignty delivered in 24 hours.">Soberanía Intelectual entregada en 24 horas.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+let currentLang='es';
+function setLang(lang){currentLang=lang;document.querySelectorAll('[data-es]').forEach(el=>{el.textContent=el.dataset[lang]||el.dataset.es;});document.getElementById('btn-es').classList.toggle('active',lang==='es');document.getElementById('btn-en').classList.toggle('active',lang==='en');document.documentElement.lang=lang;}
+function toggleMob(){const m=document.getElementById('mob-menu');m.classList.toggle('open');}
+const ro=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:0.12});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+</script>
+  <script src="./chat-widget.js"></script>
+</body>
+</html>

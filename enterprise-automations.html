@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nexorum Enterprise Automations — Inteligencia Operativa mediante IA</title>
+  <meta name="description" content="Optimización de procesos complejos mediante ecosistemas de IA. Transformamos operaciones empresariales en sistemas autónomos, escalables y medibles. Nexorum LLC, Wyoming."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'nx-navy':       '#000413',
+            'nx-navy-mid':   '#0a192f',
+            'nx-navy-light': '#112240',
+            'nx-cobalt':     '#365da5',
+            'nx-cobalt-br':  '#4a7fd4',
+            'nx-gold':       '#e9c176',
+            'nx-surface':    '#f9f9fa',
+            'nx-surface-lo': '#f0f0f2',
+          },
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body:    ['"Work Sans"', 'sans-serif'],
+          },
+          borderRadius: { DEFAULT:'0px', sm:'0px', md:'0px', lg:'0px', xl:'0px', '2xl':'0px', full:'9999px' }
+        }
+      }
+    }
+  </script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Work Sans',sans-serif;background:#f9f9fa;color:#1a1c1d;overflow-x:hidden}
+    .nav-glass{background:rgba(0,4,19,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(74,127,212,.18)}
+    .hero-bg{background:linear-gradient(135deg,#000413 0%,#0a1828 45%,#0a192f 100%)}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(54,93,165,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(54,93,165,.06) 1px,transparent 1px);background-size:64px 64px}
+    .label-tag{font-family:'Work Sans',sans-serif;font-weight:500;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#e9c176}
+    .gold-bar{display:inline-block;width:36px;height:2px;background:#e9c176;flex-shrink:0}
+    .btn-wa{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#25D366;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .15s}
+    .btn-wa:hover{background:#128C7E}
+    .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#365da5;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .15s}
+    .btn-primary:hover{background:#4a7fd4}
+    .btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:border-color .15s,color .15s}
+    .btn-ghost:hover{border-color:#e9c176;color:#e9c176}
+    .lang-btn{font-family:'Work Sans',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.45);padding:4px 6px;border-bottom:2px solid transparent;transition:all .15s;background:none;border-left:0;border-right:0;border-top:0;cursor:pointer}
+    .lang-btn.active{color:#e9c176;border-bottom-color:#e9c176}
+    .rv{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+    .rv.in{opacity:1;transform:translateY(0)}
+    /* Service cards */
+    .svc-card{border-left:3px solid transparent;transition:border-color .2s,transform .2s;padding-left:20px}
+    .svc-card:hover{border-left-color:#e9c176;transform:translateX(4px)}
+    /* Metric */
+    .metric-n{font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:2.8rem;line-height:1;color:#e9c176}
+    /* Process timeline */
+    .timeline-dot{width:12px;height:12px;background:#e9c176;flex-shrink:0;margin-top:4px}
+    .timeline-line{width:2px;background:linear-gradient(to bottom,#e9c176,rgba(54,93,165,.3));margin-left:5px;flex-shrink:0}
+    /* Feat check */
+    .feat-yes::before{content:'✓';color:#e9c176;font-weight:700;margin-right:8px}
+    #mob-menu{display:none}
+    #mob-menu.open{display:flex}
+    @media(max-width:768px){.hero-h1{font-size:2.2rem!important}}
+  </style>
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════════ NAV ══════════════════════════════════════════ -->
+<nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+    <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+        <path d="M10 38 L10 32 C6 30 3 25.5 3 20 C3 11.2 9.7 4 18 4 C26.3 4 33 11.2 33 20 C33 25.5 30 30 26 32 L26 38 Z" stroke="#4a7fd4" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+        <circle cx="15" cy="15" r="2.2" fill="#e9c176"/><circle cx="23" cy="11" r="1.5" fill="#4a7fd4" opacity=".85"/><circle cx="28" cy="19" r="1.8" fill="#4a7fd4" opacity=".85"/><circle cx="22" cy="26" r="1.4" fill="#4a7fd4" opacity=".85"/><circle cx="14" cy="24" r="1.8" fill="#e9c176" opacity=".75"/><circle cx="19" cy="32" r="1.2" fill="#4a7fd4" opacity=".6"/>
+        <line x1="15" y1="15" x2="23" y2="11" stroke="#4a7fd4" stroke-width=".8" opacity=".5"/><line x1="23" y1="11" x2="28" y2="19" stroke="#4a7fd4" stroke-width=".8" opacity=".5"/><line x1="28" y1="19" x2="22" y2="26" stroke="#4a7fd4" stroke-width=".8" opacity=".5"/><line x1="22" y1="26" x2="14" y2="24" stroke="#4a7fd4" stroke-width=".8" opacity=".5"/><line x1="15" y1="15" x2="14" y2="24" stroke="#4a7fd4" stroke-width=".8" opacity=".5"/><line x1="22" y1="26" x2="19" y2="32" stroke="#4a7fd4" stroke-width=".8" opacity=".5"/>
+      </svg>
+      <div>
+        <div class="text-white font-display font-black text-sm tracking-widest uppercase leading-none">NEXORUM</div>
+        <div class="text-nx-gold font-body font-medium text-xs tracking-widest uppercase leading-none mt-0.5">ENTERPRISE</div>
+      </div>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="index.html" class="text-gray-400 hover:text-white font-body text-sm font-medium transition-colors tracking-wide" data-es="← Holding" data-en="← Holding">← Holding</a>
+      <a href="publishing-lab.html" class="text-gray-400 hover:text-white font-body text-sm font-medium transition-colors tracking-wide">Publishing Lab</a>
+      <a href="#servicios" class="text-gray-400 hover:text-white font-body text-sm font-medium transition-colors tracking-wide" data-es="Servicios" data-en="Services">Servicios</a>
+      <a href="#metodologia" class="text-gray-400 hover:text-white font-body text-sm font-medium transition-colors tracking-wide" data-es="Metodología" data-en="Methodology">Metodología</a>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-0.5">
+        <button onclick="setLang('es')" class="lang-btn active" id="btn-es">ES</button>
+        <span class="text-gray-600 text-xs">|</span>
+        <button onclick="setLang('en')" class="lang-btn" id="btn-en">EN</button>
+      </div>
+      <a href="https://wa.me/525664445643?text=Hola%20Nexorum%2C%20me%20interesa%20automatizar%20mi%20empresa%20con%20IA."
+         target="_blank"
+         class="hidden md:flex items-center gap-2 bg-nx-cobalt hover:bg-nx-cobalt-br text-white px-4 py-2.5 text-xs font-display font-bold tracking-widest uppercase transition-colors">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-es="Auditoría Gratuita" data-en="Free Audit">Auditoría Gratuita</span>
+      </a>
+      <button onclick="toggleMob()" class="lg:hidden text-white p-1">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mob-menu" class="flex-col bg-nx-navy border-t border-white/10 px-6 py-4 gap-4 lg:hidden">
+    <a href="index.html" class="text-gray-300 font-body text-sm py-2 border-b border-white/10">← Nexorum Global</a>
+    <a href="#servicios" onclick="toggleMob()" class="text-gray-300 font-body text-sm py-2 border-b border-white/10" data-es="Servicios" data-en="Services">Servicios</a>
+    <a href="https://wa.me/525664445643?text=Hola%20Nexorum%2C%20me%20interesa%20automatizar%20mi%20empresa." target="_blank" class="btn-wa mt-2 justify-center">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-es="Auditoría Gratuita" data-en="Free Audit">Auditoría Gratuita</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════ HERO ══════════════════════════════════════════ -->
+<section class="hero-bg relative min-h-screen flex items-center overflow-hidden pt-16">
+  <div class="hero-grid"></div>
+  <!-- Decorative circuit board pattern -->
+  <div class="absolute right-0 top-0 bottom-0 w-1/2 flex items-center justify-end pr-12 opacity-4 pointer-events-none select-none" aria-hidden="true">
+    <svg viewBox="0 0 300 300" class="w-80 h-auto" fill="none" stroke="rgba(74,127,212,0.3)" stroke-width="1">
+      <rect x="50" y="50" width="200" height="200"/>
+      <line x1="50" y1="100" x2="10" y2="100"/><line x1="50" y1="150" x2="10" y2="150"/><line x1="50" y1="200" x2="10" y2="200"/>
+      <line x1="250" y1="100" x2="290" y2="100"/><line x1="250" y1="150" x2="290" y2="150"/><line x1="250" y1="200" x2="290" y2="200"/>
+      <line x1="100" y1="50" x2="100" y2="10"/><line x1="150" y1="50" x2="150" y2="10"/><line x1="200" y1="50" x2="200" y2="10"/>
+      <circle cx="100" cy="100" r="8" fill="rgba(233,193,118,0.3)" stroke="none"/>
+      <circle cx="150" cy="100" r="5" fill="rgba(74,127,212,0.3)" stroke="none"/>
+      <circle cx="200" cy="100" r="8" fill="rgba(74,127,212,0.3)" stroke="none"/>
+      <circle cx="100" cy="150" r="5" fill="rgba(74,127,212,0.3)" stroke="none"/>
+      <circle cx="150" cy="150" r="10" fill="rgba(233,193,118,0.25)" stroke="rgba(233,193,118,0.4)" stroke-width="1.5"/>
+      <circle cx="200" cy="150" r="5" fill="rgba(74,127,212,0.3)" stroke="none"/>
+      <circle cx="100" cy="200" r="8" fill="rgba(74,127,212,0.3)" stroke="none"/>
+      <circle cx="150" cy="200" r="5" fill="rgba(74,127,212,0.3)" stroke="none"/>
+      <circle cx="200" cy="200" r="8" fill="rgba(233,193,118,0.3)" stroke="none"/>
+      <line x1="100" y1="100" x2="200" y2="100"/><line x1="100" y1="100" x2="100" y2="200"/><line x1="200" y1="100" x2="200" y2="200"/><line x1="100" y1="200" x2="200" y2="200"/>
+      <line x1="100" y1="100" x2="150" y2="150"/><line x1="200" y1="100" x2="150" y2="150"/><line x1="100" y1="200" x2="150" y2="150"/><line x1="200" y1="200" x2="150" y2="150"/>
+    </svg>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-28 w-full">
+    <div class="max-w-4xl">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="gold-bar"></div>
+        <span class="label-tag" data-es="NEXORUM ENTERPRISE AUTOMATIONS · INTELIGENCIA OPERATIVA" data-en="NEXORUM ENTERPRISE AUTOMATIONS · OPERATIONAL INTELLIGENCE">NEXORUM ENTERPRISE AUTOMATIONS · INTELIGENCIA OPERATIVA</span>
+      </div>
+
+      <h1 class="hero-h1 font-display font-black text-white leading-none tracking-tight mb-8" style="font-size:clamp(2.4rem,6.5vw,5rem);">
+        <span data-es="Transforma tu empresa" data-en="Transform your company">Transforma tu empresa</span><br/>
+        <span class="text-nx-gold" data-es="en un sistema" data-en="into a system">en un sistema</span><br/>
+        <span data-es="que opera solo." data-en="that runs itself.">que opera solo.</span>
+      </h1>
+
+      <p class="font-body text-gray-300 max-w-2xl mb-10 leading-relaxed text-lg"
+         data-es="Optimización de procesos complejos mediante ecosistemas de Inteligencia Artificial. Convertimos operaciones manuales, ineficientes y costosas en flujos autónomos, escalables y medibles."
+         data-en="Complex process optimization through Artificial Intelligence ecosystems. We convert manual, inefficient, and costly operations into autonomous, scalable, and measurable flows.">
+        Optimización de procesos complejos mediante ecosistemas de Inteligencia Artificial. Convertimos operaciones manuales, ineficientes y costosas en flujos autónomos, escalables y medibles.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="https://wa.me/525664445643?text=Hola%20Nexorum%2C%20quiero%20una%20auditor%C3%ADa%20de%20mis%20procesos%20empresariales."
+           target="_blank" class="btn-wa">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-es="Solicitar Auditoría de Procesos" data-en="Request Process Audit">Solicitar Auditoría de Procesos</span>
+        </a>
+        <a href="#servicios" class="btn-ghost">
+          <span data-es="Ver Servicios" data-en="View Services">Ver Servicios</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="square" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </div>
+
+      <!-- Metrics -->
+      <div class="mt-14 pt-8 border-t border-white/10 flex flex-wrap items-center gap-8">
+        <div>
+          <div class="metric-n" style="font-size:1.8rem">IA</div>
+          <div class="text-gray-500 font-body text-xs tracking-widest uppercase mt-0.5" data-es="Ecosistemas" data-en="Ecosystems">Ecosistemas</div>
+        </div>
+        <div class="w-px h-8 bg-white/10"></div>
+        <div>
+          <div class="metric-n" style="font-size:1.8rem">24/7</div>
+          <div class="text-gray-500 font-body text-xs tracking-widest uppercase mt-0.5" data-es="Operación Autónoma" data-en="Autonomous Operation">Operación Autónoma</div>
+        </div>
+        <div class="w-px h-8 bg-white/10"></div>
+        <div>
+          <div class="metric-n" style="font-size:1.8rem">0</div>
+          <div class="text-gray-500 font-body text-xs tracking-widest uppercase mt-0.5" data-es="Errores Manuales" data-en="Manual Errors">Errores Manuales</div>
+        </div>
+        <div class="w-px h-8 bg-white/10"></div>
+        <div>
+          <div class="metric-n" style="font-size:1.8rem">∞</div>
+          <div class="text-gray-500 font-body text-xs tracking-widest uppercase mt-0.5" data-es="Escalabilidad" data-en="Scalability">Escalabilidad</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ PROBLEMA / SOLUCIÓN ══════════════════════════════════════════ -->
+<section class="bg-white py-28 px-6">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+
+    <!-- Problema -->
+    <div class="rv">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="gold-bar"></div>
+        <span class="label-tag" data-es="EL DIAGNÓSTICO" data-en="THE DIAGNOSIS">EL DIAGNÓSTICO</span>
+      </div>
+      <h2 class="font-display font-black text-nx-navy text-4xl tracking-tight leading-none mb-6"
+          data-es="Tu empresa tiene procesos que te cuestan dinero, tiempo y energía." data-en="Your company has processes that cost you money, time, and energy.">
+        Tu empresa tiene procesos que te cuestan dinero, tiempo y energía.
+      </h2>
+      <div class="space-y-5 mt-8">
+        <div class="flex gap-4 items-start">
+          <div class="w-8 h-8 bg-red-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="square" d="M6 18L18 6M6 6l12 12"/></svg>
+          </div>
+          <p class="font-body text-gray-500 leading-relaxed" data-es="Tareas repetitivas que consumen horas de tu equipo sin agregar valor estratégico al negocio." data-en="Repetitive tasks that consume hours of your team's time without adding strategic value to the business.">Tareas repetitivas que consumen horas de tu equipo sin agregar valor estratégico al negocio.</p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-8 h-8 bg-red-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="square" d="M6 18L18 6M6 6l12 12"/></svg>
+          </div>
+          <p class="font-body text-gray-500 leading-relaxed" data-es="Flujos desconectados entre herramientas: CRM, ERP, email, facturación y atención al cliente operan en silos." data-en="Disconnected workflows between tools: CRM, ERP, email, billing, and customer service operate in silos.">Flujos desconectados entre herramientas: CRM, ERP, email, facturación y atención al cliente operan en silos.</p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-8 h-8 bg-red-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="square" d="M6 18L18 6M6 6l12 12"/></svg>
+          </div>
+          <p class="font-body text-gray-500 leading-relaxed" data-es="Decisiones operativas basadas en intuición, no en datos. Sin métricas claras, sin visibilidad del negocio en tiempo real." data-en="Operational decisions based on intuition, not data. No clear metrics, no real-time business visibility.">Decisiones operativas basadas en intuición, no en datos. Sin métricas claras, sin visibilidad del negocio en tiempo real.</p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-8 h-8 bg-red-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="square" d="M6 18L18 6M6 6l12 12"/></svg>
+          </div>
+          <p class="font-body text-gray-500 leading-relaxed" data-es="Escalabilidad bloqueada: el crecimiento depende de contratar más personas, no de mejorar los sistemas." data-en="Blocked scalability: growth depends on hiring more people, not improving systems.">Escalabilidad bloqueada: el crecimiento depende de contratar más personas, no de mejorar los sistemas.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solución -->
+    <div class="rv bg-nx-navy p-10">
+      <div class="label-tag mb-4" style="color:#e9c176" data-es="LA SOLUCIÓN NEXORUM" data-en="THE NEXORUM SOLUTION">LA SOLUCIÓN NEXORUM</div>
+      <h3 class="font-display font-black text-white text-3xl mb-6 leading-tight"
+          data-es="Ecosistemas de IA diseñados para tu operación." data-en="AI ecosystems designed for your operation.">
+        Ecosistemas de IA diseñados para tu operación.
+      </h3>
+      <div class="space-y-5">
+        <div class="flex gap-4 items-start">
+          <div class="w-8 h-8 bg-nx-gold flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-nx-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="square" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          </div>
+          <p class="font-body text-gray-300 leading-relaxed" data-es="Auditoría completa de procesos para identificar los cuellos de botella con mayor impacto en el ROI." data-en="Complete process audit to identify bottlenecks with the highest ROI impact.">Auditoría completa de procesos para identificar los cuellos de botella con mayor impacto en el ROI.</p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-8 h-8 bg-nx-gold flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-nx-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="square" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          </div>
+          <p class="font-body text-gray-300 leading-relaxed" data-es="Integración de flujos de trabajo mediante APIs, n8n, Make, Zapier y herramientas de IA generativa como GPT-4." data-en="Workflow integration via APIs, n8n, Make, Zapier, and generative AI tools like GPT-4.">Integración de flujos de trabajo mediante APIs, n8n, Make, Zapier y herramientas de IA generativa como GPT-4.</p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-8 h-8 bg-nx-gold flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-nx-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="square" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          </div>
+          <p class="font-body text-gray-300 leading-relaxed" data-es="Dashboards operativos en tiempo real. Decisiones basadas en datos, no en suposiciones." data-en="Real-time operational dashboards. Data-driven decisions, not assumptions.">Dashboards operativos en tiempo real. Decisiones basadas en datos, no en suposiciones.</p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-8 h-8 bg-nx-gold flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-nx-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="square" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          </div>
+          <p class="font-body text-gray-300 leading-relaxed" data-es="Sistemas escalables que crecen con tu empresa, sin necesidad de aumentar el equipo proporcionalmente." data-en="Scalable systems that grow with your company, without the need to proportionally increase headcount.">Sistemas escalables que crecen con tu empresa, sin necesidad de aumentar el equipo proporcionalmente.</p>
+        </div>
+      </div>
+      <div class="mt-8">
+        <a href="https://wa.me/525664445643?text=Hola%20Nexorum%2C%20quiero%20una%20auditor%C3%ADa%20de%20mis%20procesos." target="_blank" class="btn-wa w-full justify-center">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-es="Agendar Auditoría Gratuita" data-en="Schedule Free Audit">Agendar Auditoría Gratuita</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ SERVICIOS ══════════════════════════════════════════ -->
+<section id="servicios" class="bg-nx-surface-lo py-28 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="rv mb-16">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="gold-bar"></div>
+        <span class="label-tag" data-es="PORTAFOLIO DE SERVICIOS" data-en="SERVICES PORTFOLIO">PORTAFOLIO DE SERVICIOS</span>
+      </div>
+      <h2 class="font-display font-black text-nx-navy text-4xl md:text-5xl tracking-tight leading-none"
+          data-es="Inteligencia Operativa Aplicada." data-en="Applied Operational Intelligence.">Inteligencia Operativa Aplicada.</h2>
+      <p class="font-body text-gray-500 mt-5 max-w-2xl text-lg leading-relaxed"
+         data-es="Cada servicio está diseñado para producir resultados medibles. No implementamos tecnología; construimos sistemas que generan eficiencia comprobable."
+         data-en="Every service is designed to produce measurable results. We don't implement technology; we build systems that generate verifiable efficiency.">
+        Cada servicio está diseñado para producir resultados medibles. No implementamos tecnología; construimos sistemas que generan eficiencia comprobable.
+      </p>
+    </div>
+
+    <div class="rv grid grid-cols-1 md:grid-cols-2 gap-0 bg-gray-200">
+
+      <!-- S1 -->
+      <div class="bg-white p-10">
+        <div class="w-10 h-10 bg-nx-cobalt flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="square" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path stroke-linecap="square" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div class="label-tag mb-3" style="color:#365da5" data-es="SERVICIO 01" data-en="SERVICE 01">SERVICIO 01</div>
+        <h3 class="font-display font-bold text-nx-navy text-2xl mb-4 leading-tight" data-es="Auditoría Operativa de IA" data-en="AI Operational Audit">Auditoría Operativa de IA</h3>
+        <p class="font-body text-gray-500 leading-relaxed mb-5" data-es="Diagnóstico exhaustivo de tus procesos actuales. Identificamos las 3 áreas con mayor potencial de automatización y ROI. Entregamos un mapa de acción priorizado." data-en="Comprehensive diagnosis of your current processes. We identify the 3 areas with the highest automation potential and ROI. We deliver a prioritized action map.">Diagnóstico exhaustivo de tus procesos actuales. Identificamos las 3 áreas con mayor potencial de automatización y ROI. Entregamos un mapa de acción priorizado.</p>
+        <div class="space-y-2">
+          <p class="font-body text-gray-500 text-sm feat-yes" data-es="Mapeo completo de procesos" data-en="Complete process mapping">Mapeo completo de procesos</p>
+          <p class="font-body text-gray-500 text-sm feat-yes" data-es="Análisis de cuellos de botella" data-en="Bottleneck analysis">Análisis de cuellos de botella</p>
+          <p class="font-body text-gray-500 text-sm feat-yes" data-es="Reporte de ROI potencial" data-en="Potential ROI report">Reporte de ROI potencial</p>
+        </div>
+      </div>
+
+      <!-- S2 -->
+      <div class="bg-nx-surface-lo p-10">
+        <div class="w-10 h-10 bg-nx-navy flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-nx-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="square" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
+        </div>
+        <div class="label-tag mb-3" style="color:#365da5" data-es="SERVICIO 02" data-en="SERVICE 02">SERVICIO 02</div>
+        <h3 class="font-display font-bold text-nx-navy text-2xl mb-4 leading-tight" data-es="Integración de Flujos de Trabajo" data-en="Workflow Integration">Integración de Flujos de Trabajo</h3>
+        <p class="font-body text-gray-500 leading-relaxed mb-5" data-es="Conectamos tus herramientas existentes (CRM, ERP, email, WhatsApp, facturación) en un ecosistema unificado mediante APIs, n8n y Make. Fin a los silos operativos." data-en="We connect your existing tools (CRM, ERP, email, WhatsApp, billing) into a unified ecosystem via APIs, n8n, and Make. End to operational silos.">Conectamos tus herramientas existentes (CRM, ERP, email, WhatsApp, facturación) en un ecosistema unificado mediante APIs, n8n y Make. Fin a los silos operativos.</p>
+        <div class="space-y-2">
+          <p class="font-body text-gray-500 text-sm feat-yes" data-es="Integración API personalizada" data-en="Custom API integration">Integración API personalizada</p>
+          <p class="font-body text-gray-500 text-sm feat-yes" data-es="Automatización n8n / Make / Zapier" data-en="n8n / Make / Zapier automation">Automatización n8n / Make / Zapier</p>
+          <p class="font-body text-gray-500 text-sm feat-yes" data-es="Flujos sin intervención manual" data-en="Zero-manual-intervention flows">Flujos sin intervención manual</p>
+        </div>
+      </div>
+
+      <!-- S3 -->
+      <div class="bg-nx-surface-lo p-10">
+        <div class="w-10 h-10 bg-nx-cobalt flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="square" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg>
+        </div>
+        <div class="label-tag mb-3" style="color:#365da5" data-es="SERVICIO 03" data-en="SERVICE 03">SERVICIO 03</div>
+        <h3 class="font-display font-bold text-nx-navy text-2xl mb-4 leading-tight" data-es="Agentes de IA Conversacional" data-en="Conversational AI Agents">Agentes de IA Conversacional</h3>
+        <p class="font-body text-gray-500 leading-relaxed mb-5" data-es="Implementación de agentes inteligentes para atención al cliente, calificación de leads, soporte técnico y ventas. Disponibles 24/7 en WhatsApp, web y email." data-en="Implementation of intelligent agents for customer service, lead qualification, technical support, and sales. Available 24/7 on WhatsApp, web, and email.">Implementación de agentes inteligentes para atención al cliente, calificación de leads, soporte técnico y ventas. Disponibles 24/7 en WhatsApp, web y email.</p>
+        <div class="space-y-2">
+          <p class="font-body text-gray-500 text-sm feat-yes" data-es="Chatbots con GPT-4 / Claude" data-en="GPT-4 / Claude chatbots">Chatbots con GPT-4 / Claude</p>
+          <p class="font-body text-gray-500 text-sm feat-yes" data-es="Integración WhatsApp Business API" data-en="WhatsApp Business API integration">Integración WhatsApp Business API</p>
+          <p class="font-body text-gray-500 text-sm feat-yes" data-es="Entrenamiento en tu base de conocimiento" data-en="Training on your knowledge base">Entrenamiento en tu base de conocimiento</p>
+        </div>
+      </div>
+
+      <!-- S4 -->
+      <div class="bg-nx-navy p-10">
+        <div class="w-10 h-10 bg-nx-gold flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-nx-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="square" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+        </div>
+        <div class="label-tag mb-3" style="color:#e9c176" data-es="SERVICIO 04" data-en="SERVICE 04">SERVICIO 04</div>
+        <h3 class="font-display font-bold text-white text-2xl mb-4 leading-tight" data-es="Dashboards e Inteligencia de Negocio" data-en="Dashboards & Business Intelligence">Dashboards e Inteligencia de Negocio</h3>
+        <p class="font-body text-gray-400 leading-relaxed mb-5" data-es="Construcción de dashboards operativos en tiempo real. KPIs de ventas, operaciones, marketing y finanzas en una sola vista. Decisiones fundamentadas en datos, no en intuición." data-en="Real-time operational dashboard construction. Sales, operations, marketing, and finance KPIs in a single view. Decisions grounded in data, not intuition.">Construcción de dashboards operativos en tiempo real. KPIs de ventas, operaciones, marketing y finanzas en una sola vista. Decisiones fundamentadas en datos, no en intuición.</p>
+        <div class="space-y-2">
+          <p class="font-body text-gray-400 text-sm feat-yes" data-es="Dashboards en tiempo real" data-en="Real-time dashboards">Dashboards en tiempo real</p>
+          <p class="font-body text-gray-400 text-sm feat-yes" data-es="Reportes automatizados (diario/semanal)" data-en="Automated reports (daily/weekly)">Reportes automatizados (diario/semanal)</p>
+          <p class="font-body text-gray-400 text-sm feat-yes" data-es="Alertas inteligentes por umbral" data-en="Smart threshold alerts">Alertas inteligentes por umbral</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ METODOLOGÍA ══════════════════════════════════════════ -->
+<section id="metodologia" class="bg-white py-28 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="rv mb-16">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="gold-bar"></div>
+        <span class="label-tag" data-es="PROCESO DE IMPLEMENTACIÓN" data-en="IMPLEMENTATION PROCESS">PROCESO DE IMPLEMENTACIÓN</span>
+      </div>
+      <h2 class="font-display font-black text-nx-navy text-4xl md:text-5xl tracking-tight leading-none"
+          data-es="De la auditoría al sistema autónomo." data-en="From audit to autonomous system.">De la auditoría al sistema autónomo.</h2>
+    </div>
+
+    <div class="rv grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="bg-nx-surface-lo p-8 border-b-2 border-nx-cobalt">
+        <div class="font-display font-black text-nx-cobalt opacity-20 text-6xl leading-none mb-4">01</div>
+        <h4 class="font-display font-bold text-nx-navy text-lg mb-3" data-es="Diagnóstico" data-en="Diagnosis">Diagnóstico</h4>
+        <p class="font-body text-gray-500 text-sm leading-relaxed" data-es="Auditoría de procesos. Identificamos ineficiencias, cuellos de botella y oportunidades de automatización con impacto medible." data-en="Process audit. We identify inefficiencies, bottlenecks, and automation opportunities with measurable impact.">Auditoría de procesos. Identificamos ineficiencias, cuellos de botella y oportunidades de automatización con impacto medible.</p>
+      </div>
+      <div class="bg-nx-surface-lo p-8 border-b-2 border-nx-gold">
+        <div class="font-display font-black text-nx-cobalt opacity-20 text-6xl leading-none mb-4">02</div>
+        <h4 class="font-display font-bold text-nx-navy text-lg mb-3" data-es="Arquitectura" data-en="Architecture">Arquitectura</h4>
+        <p class="font-body text-gray-500 text-sm leading-relaxed" data-es="Diseño del ecosistema de IA. Selección de herramientas, flujos y puntos de integración. Hoja de ruta de implementación con entregables claros." data-en="AI ecosystem design. Tool selection, flows, and integration points. Implementation roadmap with clear deliverables.">Diseño del ecosistema de IA. Selección de herramientas, flujos y puntos de integración. Hoja de ruta de implementación con entregables claros.</p>
+      </div>
+      <div class="bg-nx-surface-lo p-8 border-b-2 border-nx-cobalt">
+        <div class="font-display font-black text-nx-cobalt opacity-20 text-6xl leading-none mb-4">03</div>
+        <h4 class="font-display font-bold text-nx-navy text-lg mb-3" data-es="Implementación" data-en="Implementation">Implementación</h4>
+        <p class="font-body text-gray-500 text-sm leading-relaxed" data-es="Configuración, integración y pruebas de los sistemas automatizados. Monitoreo en tiempo real durante el despliegue inicial." data-en="Configuration, integration, and testing of automated systems. Real-time monitoring during initial deployment.">Configuración, integración y pruebas de los sistemas automatizados. Monitoreo en tiempo real durante el despliegue inicial.</p>
+      </div>
+      <div class="bg-nx-navy p-8 border-b-2 border-nx-gold">
+        <div class="font-display font-black text-white opacity-10 text-6xl leading-none mb-4">04</div>
+        <h4 class="font-display font-bold text-white text-lg mb-3" data-es="Optimización" data-en="Optimization">Optimización</h4>
+        <p class="font-body text-gray-400 text-sm leading-relaxed" data-es="Seguimiento de métricas, ajuste de flujos y expansión del ecosistema conforme evoluciona la operación. Soporte continuo." data-en="Metrics tracking, flow adjustment, and ecosystem expansion as operations evolve. Continuous support.">Seguimiento de métricas, ajuste de flujos y expansión del ecosistema conforme evoluciona la operación. Soporte continuo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ CTA ══════════════════════════════════════════ -->
+<section class="bg-nx-navy py-20 px-6">
+  <div class="max-w-4xl mx-auto text-center rv">
+    <div class="flex justify-center mb-6"><div class="gold-bar" style="width:48px"></div></div>
+    <h2 class="font-display font-black text-white text-3xl md:text-5xl tracking-tight leading-tight mb-6"
+        data-es="Tu empresa puede operar mejor. Empieza hoy." data-en="Your company can operate better. Start today.">
+      Tu empresa puede operar mejor. Empieza hoy.
+    </h2>
+    <p class="font-body text-gray-400 text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
+       data-es="La primera auditoría de procesos es gratuita. En 24 horas te enviamos un diagnóstico inicial con las 3 áreas de mayor impacto para tu operación."
+       data-en="The first process audit is free. In 24 hours we send you an initial diagnosis with the 3 highest-impact areas for your operation.">
+      La primera auditoría de procesos es gratuita. En 24 horas te enviamos un diagnóstico inicial con las 3 áreas de mayor impacto para tu operación.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="https://wa.me/525664445643?text=Hola%20Nexorum%2C%20quiero%20mi%20auditor%C3%ADa%20de%20procesos%20gratuita." target="_blank" class="btn-wa">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-es="Solicitar Auditoría Gratuita" data-en="Request Free Audit">Solicitar Auditoría Gratuita</span>
+      </a>
+      <a href="index.html" class="btn-ghost">
+        <span data-es="← Nexorum Global" data-en="← Nexorum Global">← Nexorum Global</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ FOOTER ══════════════════════════════════════════ -->
+<footer class="bg-nx-navy border-t border-white/8 py-14 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <div class="mb-4">
+          <div class="text-white font-display font-black text-sm tracking-widest uppercase leading-none">NEXORUM</div>
+          <div class="text-nx-gold font-body font-medium text-xs tracking-widest uppercase leading-none mt-0.5">ENTERPRISE AUTOMATIONS</div>
+        </div>
+        <p class="font-body text-gray-500 text-sm leading-relaxed max-w-xs" data-es="División de Inteligencia Operativa de Nexorum LLC. Automatización empresarial mediante ecosistemas de IA bajo jurisdicción de Wyoming, Estados Unidos." data-en="Operational Intelligence division of Nexorum LLC. Enterprise automation through AI ecosystems under Wyoming, United States jurisdiction.">División de Inteligencia Operativa de Nexorum LLC. Automatización empresarial mediante ecosistemas de IA bajo jurisdicción de Wyoming, Estados Unidos.</p>
+      </div>
+      <div>
+        <div class="label-tag mb-5" data-es="NEXORUM GLOBAL" data-en="NEXORUM GLOBAL">NEXORUM GLOBAL</div>
+        <div class="space-y-3">
+          <a href="index.html" class="block text-gray-400 hover:text-white font-body text-sm transition-colors" data-es="← Home Holding" data-en="← Holding Home">← Home Holding</a>
+          <a href="publishing-lab.html" class="block text-gray-400 hover:text-white font-body text-sm transition-colors">Publishing Lab</a>
+        </div>
+      </div>
+      <div>
+        <div class="label-tag mb-5" data-es="INFORMACIÓN LEGAL" data-en="LEGAL INFORMATION">INFORMACIÓN LEGAL</div>
+        <div class="space-y-2 text-gray-500 font-body text-xs leading-relaxed">
+          <div><span class="text-gray-400">Entidad:</span> Nexorum LLC</div>
+          <div><span class="text-gray-400">Estado:</span> Wyoming, United States</div>
+          <div><span class="text-gray-400">Expediente:</span> 2026-001868114</div>
+          <div><span class="text-gray-400">Constitución:</span> January 15, 2026</div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-gray-600 font-body text-xs" data-es="© 2026 Nexorum LLC — Enterprise Automations. Todos los derechos reservados. Wyoming, United States." data-en="© 2026 Nexorum LLC — Enterprise Automations. All rights reserved. Wyoming, United States.">© 2026 Nexorum LLC — Enterprise Automations. Todos los derechos reservados. Wyoming, United States.</p>
+      <p class="text-gray-700 font-body text-xs" data-es="Inteligencia Operativa. Eficiencia Global." data-en="Operational Intelligence. Global Efficiency.">Inteligencia Operativa. Eficiencia Global.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+let currentLang='es';
+function setLang(lang){currentLang=lang;document.querySelectorAll('[data-es]').forEach(el=>{el.textContent=el.dataset[lang]||el.dataset.es;});document.getElementById('btn-es').classList.toggle('active',lang==='es');document.getElementById('btn-en').classList.toggle('active',lang==='en');document.documentElement.lang=lang;}
+function toggleMob(){const m=document.getElementById('mob-menu');m.classList.toggle('open');}
+const ro=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:0.12});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+</script>
+  <script src="./chat-widget.js"></script>
+</body>
+</html>
